@@ -21,7 +21,7 @@ async function update(id, changes) {
 }
 
 function remove(id) {
-  return null;
+  return db("users").del().where({ id });
 }
 
 function getAll() {

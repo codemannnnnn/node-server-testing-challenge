@@ -33,6 +33,23 @@ router.post("/name", (req, res) => {
     .then((e) => res.json(e))
     .catch((err) => res.json(err));
 });
+
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  db.remove(id)
+    .then((e) => res.json({ data: e }))
+    .catch((err) => res.json({ message: "no id", err }));
+});
+//
+// router.delete("/:id", (req, res) => {
+//   const { id } = req.params;
+//   if (!id) {
+//     res.json({ message: "that id doesnt exist" });
+//   } else {
+//     db.remove(id).then((e) => res.json({ data: e }));
+//   }
+// });
 //
 // router.get("/names", (req, res) => {
 //   dB("users")
